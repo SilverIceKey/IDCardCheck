@@ -2,56 +2,117 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainContent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <org.opencv.android.JavaCameraView
         android:id="@+id/cameraView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
         app:camera_id="back" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/cameraView"
+        android:layout_alignBottom="@+id/cameraView">
+
+        <View
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/idcard_bg"
+            android:background="#69000000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottom"
+            android:layout_below="@+id/top"
+            android:layout_toLeftOf="@+id/idcard_bg"
+            android:background="#69000000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottom"
+            android:layout_below="@+id/top"
+            android:layout_toRightOf="@+id/idcard_bg"
+            android:background="#69000000" />
+
+        <View
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/idcard_bg"
+            android:background="#69000000" />
+
+        <ImageView
+            android:id="@+id/idcard_bg"
+            android:layout_width="300dp"
+            android:layout_height="189dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/camera_idcard_front" />
+    </RelativeLayout>
+
     <ImageView
-        android:id="@+id/img"
+        android:id="@+id/img_z"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cameraView" />
+        android:layout_below="@+id/cameraView"
+        android:rotation="90" />
+
+    <ImageView
+        android:id="@+id/img_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cameraView"
+        android:layout_toRightOf="@+id/img_z"
+        android:rotation="90" />
 
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/img"
+        android:layout_below="@+id/img_z"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="26dp"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:textSize="26dp" />
 
 
         <TextView
             android:id="@+id/pointsize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="26dp"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="26dp" />
 
         <TextView
             android:id="@+id/width"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="26dp"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="26dp" />
 
         <TextView
             android:id="@+id/height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="26dp"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="26dp" />
+
+        <TextView
+            android:id="@+id/cardside"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="26dp" />
     </LinearLayout>
 </RelativeLayout>
