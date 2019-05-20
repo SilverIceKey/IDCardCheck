@@ -421,20 +421,25 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
                 int rotation = windowManager.getDefaultDisplay().getRotation();
                 int degrees = 0;
                 // config degrees as you need
-                switch (rotation) {
-                    case Surface.ROTATION_0:
-                        degrees = 90;
-                        break;
-                    case Surface.ROTATION_90:
-                        degrees = 0;
-                        break;
-                    case Surface.ROTATION_180:
-                        degrees = 270;
-                        break;
-                    case Surface.ROTATION_270:
-                        degrees = 180;
-                        break;
+                if (mCameraIndex==CAMERA_ID_BACK){
+                    switch (rotation) {
+                        case Surface.ROTATION_0:
+                            degrees = 90;
+                            break;
+                        case Surface.ROTATION_90:
+                            degrees = 0;
+                            break;
+                        case Surface.ROTATION_180:
+                            degrees = 270;
+                            break;
+                        case Surface.ROTATION_270:
+                            degrees = 180;
+                            break;
+                    }
+                }else if (mCameraIndex==CAMERA_ID_FRONT){
+                    degrees = 270;
                 }
+
                 Matrix matrix = new Matrix();
                 matrix.postRotate(degrees);
                 Bitmap outputBitmap = Bitmap.createBitmap(mCacheBitmap, 0, 0, mCacheBitmap.getWidth(), mCacheBitmap.getHeight(), matrix, true);

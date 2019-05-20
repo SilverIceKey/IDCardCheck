@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/cameraView"
-        android:layout_alignBottom="@+id/cameraView">
+        android:layout_alignBottom="@+id/cameraView"
+        android:visibility="visible">
 
         <View
             android:id="@+id/top"
@@ -62,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cameraView"
+        android:layout_marginLeft="50dp"
         android:rotation="90" />
 
     <ImageView
@@ -69,7 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cameraView"
-        android:layout_toRightOf="@+id/img_z"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
         android:rotation="90" />
 
     <LinearLayout
@@ -115,4 +118,11 @@
             android:textColor="#000000"
             android:textSize="26dp" />
     </LinearLayout>
+    <Button
+        android:id="@+id/side"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="正面"/>
 </RelativeLayout>
